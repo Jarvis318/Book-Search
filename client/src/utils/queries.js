@@ -7,13 +7,14 @@ export const GET_ME = gql`
       username
       email
      savedBooks {
-    [bookSchema]
+      description
+      bookId
+      image
+      link
+      title
+      authors
      }
-    }
-    {
-    toJSON {
-    virtuals
-    }
     }
   }
 `;
+

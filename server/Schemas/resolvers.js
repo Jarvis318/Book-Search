@@ -62,7 +62,7 @@ const resolvers = {
             throw AuthenticationError;
         },
         // remove a book from `savedBooks`
-        deleteBook: async(parent, args, context)=> {
+        removeBook: async(parent, args, context)=> {
             if (context.user){
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
@@ -70,9 +70,9 @@ const resolvers = {
                     { new: true }
                 );
                 if (!updatedUser) {
-                    return res.status(404).json({ message: "Couldn't find user with this id!" });
+                    throw AuthenticationError;
                 }
-                return res.json(updatedUser);
+                return updatedUser;
             }
             throw AuthenticationError;
         },
@@ -82,4 +82,5 @@ const resolvers = {
 };
 
 
+module.exports = resolvers;
 
