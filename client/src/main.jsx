@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.jsx'
 import SearchBooks from './pages/SearchBooks'
 import SavedBooks from './pages/SavedBooks'
+import LoginPage from './components/LoginForm.jsx'
+import SignupPage from './components/SignupForm.jsx'
 
 const router = createBrowserRouter([
   {
